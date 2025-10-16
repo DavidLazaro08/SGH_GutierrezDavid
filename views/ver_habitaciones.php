@@ -1,5 +1,8 @@
 <?php
-// Cargamos la clase Habitacion
+// NOTA DE PROYECTO:
+// Vista combinada (HTML + PHP) basada en plantillas personales previas,
+// adaptada para mostrar datos reales con PDO según lo visto en clase.
+
 require_once __DIR__ . '/../src/Habitacion.php';
 
 // Obtenemos las habitaciones desde la base de datos
@@ -10,20 +13,14 @@ $habitaciones = Habitacion::obtenerHabitaciones();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Habitaciones</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 30px; background: #f8f8f8; }
-        table { border-collapse: collapse; width: 100%; background: #fff; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #eee; }
-        h1 { color: #333; }
-    </style>
+    <title>Listado de Habitaciones - SGH</title>
+    <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
 <body>
-    <h1>Listado de Habitaciones</h1>
+    <h1 class="titulo-vista">🏨 Listado de Habitaciones</h1>
 
     <?php if (!empty($habitaciones)) : ?>
-        <table>
+        <table class="tabla-datos">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -36,17 +33,19 @@ $habitaciones = Habitacion::obtenerHabitaciones();
             <tbody>
                 <?php foreach ($habitaciones as $hab): ?>
                     <tr>
-                        <td><?= $hab["id"] ?></td>
-                        <td><?= $hab["numero"] ?></td>
-                        <td><?= $hab["tipo"] ?></td>
-                        <td><?= $hab["precio_base"] ?> €</td>
-                        <td><?= $hab["estado_limpieza"] ?></td>
+                        <td><?= htmlspecialchars((string)$hab["id"]) ?></td>
+                        <td><?= htmlspecialchars((string)$hab["numero"]) ?></td>
+                        <td><?= htmlspecialchars((string)$hab["tipo"]) ?></td>
+                        <td><?= htmlspecialchars((string)$hab["precio_base"]) ?> €</td>
+                        <td><?= htmlspecialchars((string)$hab["estado_limpieza"]) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     <?php else : ?>
-        <p>No hay habitaciones registradas.</p>
+        <p class="mensaje-vacio">No hay habitaciones registradas.</p>
     <?php endif; ?>
+
+    <a href="../index.php" class="volver">⬅ Volver al inicio</a>
 </body>
 </html>

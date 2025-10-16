@@ -1,0 +1,229 @@
+/* estilos.css */
+
+/* --- ESTILO DEL MENÚ PRINCIPAL --- */
+
+body.inicio {
+    background: linear-gradient(135deg, #e6d7ff, #f7f3ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.contenedor-principal {
+    background: #fff;
+    border-radius: 15px;
+    padding: 40px 60px;
+    text-align: center;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+
+.contenedor-principal h1 {
+    color: #2c3e50;
+    margin-bottom: 35px;
+    font-size: 2rem;
+}
+
+/* Menú principal mejorado */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.menu a {
+    background-color: #4e0083;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    min-width: 180px;         /* Tamaño uniforme para todos los botones */
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.menu a:hover {
+    background-color: #7a16c6;
+    transform: translateY(-3px);
+}
+
+.descripcion {
+    margin-top: 30px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* --- ESTILO GENERAL PARA TODAS LAS VISTAS --- */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #e6d7ff, #f7f3ff); /* Fondo lavanda para todas las vistas */
+    margin: 40px;
+    color: #333;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Formularios */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4e0083;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #9900ff;
+}
+
+/* Tablas */
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #e0d4f7;
+    padding: 12px 10px;
+    text-align: left;
+}
+
+th {
+    background: linear-gradient(135deg, #d8b8ff, #e6d7ff); /* degradado lavanda */
+    color: #4e0083;       /* morado principal */
+    font-weight: bold;
+    letter-spacing: 0.3px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f1ff; /* alternancia lavanda clara */
+}
+
+tr:hover {
+    background-color: #f0e2ff; /* efecto hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Enlaces del menú (versión general, por si se usa fuera del index) */
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.menu a {
+    background-color: #4e0083;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    background-color: #9900ff;
+}
+
+.volver {
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+}
+
+.titulo-vista {
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+.tabla-datos {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tabla-datos th, .tabla-datos td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.tabla-datos th {
+  background-color: #eee;
+  font-weight: bold;
+}
+
+.mensaje-vacio {
+  text-align: center;
+  color: #666;
+}
+
+.volver {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+  text-decoration: none;
+  color: #6c3483;
+  font-weight: bold;
+}
+
+.volver:hover {
+  text-decoration: underline;
+}

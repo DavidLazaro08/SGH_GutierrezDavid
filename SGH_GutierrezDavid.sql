@@ -108,3 +108,35 @@ CREATE TABLE IF NOT EXISTS mantenimientos (
 -- SELECT * FROM habitaciones;
 -- SELECT * FROM huespedes;
 -- SELECT * FROM reservas;
+
+-- -------------------------------------------------------------
+-- CREO DISTINTAS HABITACIONES DIRECTAMENTE DESDE AQUÍ
+-- -------------------------------------------------------------
+
+-- Borramos habitaciones anteriores para evitar duplicados
+DELETE FROM habitaciones;
+
+INSERT INTO habitaciones (numero, tipo, precio_base, estado_limpieza) VALUES
+(101, 'Sencilla', 45.00, 'Limpia'),
+(102, 'Doble', 65.00, 'Sucia'),
+(201, 'Suite', 120.00, 'En_Limpieza'),
+(202, 'Doble', 70.00, 'Limpia');
+
+SELECT * FROM habitaciones;
+
+-- Comprueba primero los ids reales:
+SELECT id, numero FROM habitaciones;
+
+-- Borra mantenimientos antiguos si quieres un estado limpio
+DELETE FROM mantenimientos;
+
+-- Inserta mapeando numero -> id
+INSERT INTO mantenimientos (id_habitacion, descripcion, fecha_inicio, fecha_fin)
+SELECT h.id, 'Limpieza profunda tras salida de huésped', '2025-10-10', '2025-10-12'
+FROM habitaciones h
+WHERE h.numero = 101;
+
+INSERT INTO mantenimientos (id_habitacion, descripcion, fecha_inicio, fecha_fin)
+SELECT h.id, 'Revisión del aire acondicionado', '2025-10-13', '2025-10-15'
+FROM habitaciones h
+WHERE h.numero = 202;
