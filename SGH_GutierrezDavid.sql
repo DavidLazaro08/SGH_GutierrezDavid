@@ -1,4 +1,3 @@
-
 -- Creación de la base de datos SGH_GutierrezDavid.
 -- Empleé IF NOT EXISTS para evitar errores si la base ya existía, tal y como se ha visto en clase.
 -- Además, añadí las opciones DEFAULT CHARACTER SET y COLLATE para definir la codificación "UTF-8 moderna"
@@ -140,3 +139,30 @@ INSERT INTO mantenimientos (id_habitacion, descripcion, fecha_inicio, fecha_fin)
 SELECT h.id, 'Revisión del aire acondicionado', '2025-10-13', '2025-10-15'
 FROM habitaciones h
 WHERE h.numero = 202;
+
+-- TABLA DE USUARIOS DEL SISTEMA (FASE 2 - NUEVA TAREA SESIONES)
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    rol ENUM('admin', 'usuario') NOT NULL DEFAULT 'usuario'
+);
+
+-- Limpiamos registros anteriores para evitar duplicados
+DELETE FROM usuarios;
+
+-- Insertar usuarios por defecto (actualizados)
+INSERT INTO usuarios (nombre, email, password, rol) VALUES
+('Administrador', 'admin@sgh.com', 'admin123', 'admin'),
+('UsuarioRandom', 'user@sgh.com', 'random123', 'usuario');
+
+-- HUESPEDES DE PRUEBA (para testear el sistema)
+
+-- Limpiamos huéspedes para evitar duplicados
+DELETE FROM huespedes;
+
+INSERT INTO huespedes (nombre, email, documento_identidad) VALUES
+('David Gutiérrez', 'empirio14@gmail.com', '28641499J'),
+('UsuarioRandom', 'user@sgh.com', '00000000U');

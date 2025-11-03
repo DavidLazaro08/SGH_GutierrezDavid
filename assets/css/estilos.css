@@ -86,7 +86,7 @@ form {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    width: 400px;
+    width: 600px;
     margin: 0 auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -226,4 +226,70 @@ tr:hover {
 
 .volver:hover {
   text-decoration: underline;
+}
+
+/* --- ESTILOS LOGIN Y DATOS DE PRUEBA --- */
+
+/* Contenedor del bloque "Datos de prueba" */
+.datos-prueba {
+    max-width: 555px;
+    margin: 0 auto 25px auto;
+    background-color: #f8f3ff;
+    border: 1px solid #d5c4f0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Formulario de login */
+.form-login {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #f3ebff;
+    border: 1px solid #d2bdf0;
+    border-radius: 10px;
+    padding: 20px 25px;
+    text-align: left;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+
+.form-login label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-login input[type="text"],
+.form-login input[type="password"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.form-login button {
+    display: block;
+    margin: 0 auto;
+    background-color: #5b189b;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.form-login button:hover {
+    background-color: #7a16c6;
+}
+
+
+@media (max-width: 650px) {
+    .datos-prueba, .form-login {
+        max-width: 90%;
+    }
 }
