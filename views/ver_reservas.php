@@ -4,6 +4,7 @@
 // adaptada para mostrar datos reales con PDO según lo visto en clase.
 
 require_once __DIR__ . '/../db/conexion.php';
+$modoTema = $_COOKIE['modo_tema'] ?? 'claro';
 
 try {
     // Consulta para obtener las reservas junto con el nombre del huésped y el número de habitación
@@ -37,7 +38,7 @@ try {
     <title>Listado de Reservas - SGH</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
-<body>
+<body class="<?= htmlspecialchars($modoTema) ?>">
     <h1 class="titulo-vista">📋 Listado de Reservas</h1>
 
     <?php if (!empty($reservas)) : ?>

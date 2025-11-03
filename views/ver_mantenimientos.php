@@ -5,6 +5,7 @@
 // No implementé el formulario de registro, ya que el objetivo es visualizar las tareas existentes..
 
 require_once __DIR__ . '/../db/conexion.php';
+$modoTema = $_COOKIE['modo_tema'] ?? 'claro';
 
 try {
     $consulta = $conexion->query("
@@ -33,7 +34,7 @@ try {
     <title>Mantenimientos - SGH</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
-<body>
+<body class="<?= htmlspecialchars($modoTema) ?>">
     <h1 class="titulo-vista">🧹 Mantenimientos y limpiezas</h1>
 
     <?php if (!empty($mantenimientos)) : ?>

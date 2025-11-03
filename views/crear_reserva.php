@@ -20,6 +20,9 @@ try {
     echo "<p style='color:red; text-align:center;'>❌ Error al cargar datos: " . $e->getMessage() . "</p>";
     exit;
 }
+
+$modoTema = $_COOKIE['modo_tema'] ?? 'claro';
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +32,7 @@ try {
     <title>Crear Reserva - SGH</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
-<body>
+<body class="<?= htmlspecialchars($modoTema) ?>">
 
     <h1>🛎️ Crear nueva reserva</h1>
 

@@ -3,13 +3,17 @@
 // Página principal del Sistema de Gestión Hotelera (SGH)
 
 // Le añadimos CONTROL DE SESIÓN
-
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
     header("Location: views/login.php");
     exit;
 }
+
+// --------------------------------------------------------------
+// DETECTAR MODO GUARDADO EN COOKIE (oscuro o claro)
+// --------------------------------------------------------------
+$modoTema = $_COOKIE['modo_tema'] ?? 'claro';
 
 // Guardamos los datos del usuario logueado para mostrarlos en la interfaz
 $nombreUsuario = $_SESSION['usuario'];
@@ -22,20 +26,28 @@ $rolUsuario = $_SESSION['rol'];
     <title>SGH - Sistema de Gestión Hotelera</title>
     <link rel="stylesheet" href="assets/css/estilos.css">
 </head>
-<body class="inicio">
+<!-- Aquí aplicamos el modo oscuro o claro al body -->
+<body class="inicio <?= htmlspecialchars($modoTema) ?>">
 
-      <div class="contenedor-principal">
+    <div class="contenedor-principal">
         <h1>🏨 Sistema de Gestión Hotelera (SGH)</h1>
 
+        <div class="imagen-hotel">
+            <img src="assets/img/HOTEL1.png" alt="Vista del hotel SGH">
+        </div>
+
         <!-- Barra de información de sesión -->
-        <div style="background-color:#f2f2f2; padding:10px; border-radius:8px; margin-bottom:20px;">
+        <div class="barra-sesion">
             <p>
                 👤 Sesión iniciada como: 
                 <strong><?= htmlspecialchars($nombreUsuario) ?></strong> 
                 (rol: <?= htmlspecialchars($rolUsuario) ?>)
             </p>
+            <a href="views/tema.php" class="enlace-tema">🌓 Cambiar tema</a>
             <a href="views/cerrar_sesion.php">Cerrar sesión</a>
+
         </div>
+
 
         <!-- Menú principal adaptado al rol -->
         <div class="menu">

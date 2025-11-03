@@ -4,6 +4,9 @@
 // NOTA DE PROYECTO:
 // Formulario basado en plantillas personales previas,
 // adaptado para mantener una presentación limpia y coherente.
+
+$modoTema = $_COOKIE['modo_tema'] ?? 'claro';
+
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +16,7 @@
     <title>Registrar Huésped - SGH</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
-<body>
+<body class="<?= htmlspecialchars($modoTema) ?>">
 
     <h1>Registrar nuevo huésped</h1>
 

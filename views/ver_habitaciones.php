@@ -4,6 +4,7 @@
 // adaptada para mostrar datos reales con PDO según lo visto en clase.
 
 require_once __DIR__ . '/../src/Habitacion.php';
+$modoTema = $_COOKIE['modo_tema'] ?? 'claro';
 
 // Obtenemos las habitaciones desde la base de datos
 $habitaciones = Habitacion::obtenerHabitaciones();
@@ -16,7 +17,7 @@ $habitaciones = Habitacion::obtenerHabitaciones();
     <title>Listado de Habitaciones - SGH</title>
     <link rel="stylesheet" href="../assets/css/estilos.css">
 </head>
-<body>
+<body class="<?= htmlspecialchars($modoTema) ?>">
     <h1 class="titulo-vista">🏨 Listado de Habitaciones</h1>
 
     <?php if (!empty($habitaciones)) : ?>
